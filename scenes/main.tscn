@@ -15,9 +15,11 @@
 size = Vector2(121, 195.5)
 
 [node name="main" type="Node2D"]
+y_sort_enabled = true
 
 [node name="terrain" type="Node2D" parent="." node_paths=PackedStringArray("map0", "map1", "map2", "map3", "map4", "nav0", "nav1", "nav2", "nav3", "nav4")]
 unique_name_in_owner = true
+y_sort_enabled = true
 script = ExtResource("1_4apva")
 map0 = NodePath("level 0")
 map1 = NodePath("level 1")
@@ -46,6 +48,7 @@ layer_2/z_index = 20
 layer_2/tile_data = PackedInt32Array(1179660, 247, 268435456)
 
 [node name="nav 0" type="NavigationRegion2D" parent="terrain/level 0"]
+visible = false
 z_index = 50
 navigation_polygon = ExtResource("3_atf8f")
 enabled = false
@@ -67,11 +70,11 @@ layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-458746, 262391, 268435456, -393210, 262391, 268435456, -720889, 262391, 268435456, -655353, 262391, 268435456, -196599, 262391, 268435456)
 layer_2/name = "detail"
 layer_2/y_sort_enabled = true
-layer_2/y_sort_origin = 15
 layer_2/z_index = 15
 layer_2/tile_data = PackedInt32Array(1310728, 131319, 1, 917506, 590057, 2)
 
 [node name="nav 1" type="NavigationRegion2D" parent="terrain/level 1"]
+visible = false
 z_index = 50
 position = Vector2(0, 160)
 navigation_polygon = ExtResource("3_gpsm5")
@@ -94,9 +97,10 @@ layer_1/tile_data = PackedInt32Array(-786442, 262391, 268435456, -720906, 262391
 layer_2/name = "detail"
 layer_2/y_sort_enabled = true
 layer_2/z_index = 20
-layer_2/tile_data = PackedInt32Array(-196616, 590057, 2, -262149, 65769, 1, 589827, 196841, 1, 524290, 65769, 1, -458755, 655593, 3, -983046, 524521, 3, 1114122, 131305, 4, 655366, 458985, 268435458, 655367, 393449, 268435458, 458759, 393449, 3, 262147, 393449, 0, 458753, 327913, 0, -1, 458985, 0, -196607, 458985, 268435458, -196608, 458985, 268435458, -196606, 524521, 0, -327686, 262377, 0, -262150, 655593, 268435456, -327685, 524521, 268435456, -327684, 590057, 0, -458752, 524521, 3, -720895, 65769, 4, -786439, 65769, 0, -786426, 458985, 0, -524297, 196841, 4)
+layer_2/tile_data = PackedInt32Array(-196616, 590057, 2, -262149, 65769, 1, 589827, 196841, 1, 524290, 65769, 1, -458755, 655593, 3, -983046, 524521, 3, 1114122, 131305, 4, 655366, 458985, 268435458, 655367, 393449, 268435458, 458759, 393449, 3, 262147, 393449, 0, 458753, 327913, 0, -1, 458985, 0, -196607, 458985, 268435458, -196608, 458985, 268435458, -196606, 524521, 0, -327686, 262377, 0, -262150, 655593, 268435456, -327685, 524521, 268435456, -327684, 590057, 0, -458752, 524521, 3, -720895, 65769, 4, -786439, 65769, 0, -786426, 458985, 0, -524297, 196841, 4, 917504, 131305, 4)
 
 [node name="nav 2" type="NavigationRegion2D" parent="terrain/level 2"]
+visible = false
 z_index = 50
 position = Vector2(0, 320)
 navigation_polygon = ExtResource("5_s1ve1")
@@ -120,9 +124,11 @@ layer_1/tile_data = PackedInt32Array(-786444, 262391, 0, -589836, 262391, 268435
 layer_2/name = "detail"
 layer_2/y_sort_enabled = true
 layer_2/z_index = 20
-layer_2/tile_data = PackedInt32Array(-1507340, 327913, 268435458, -1638411, 233, 4, -1114121, 458985, 268435456, -1310726, 327913, 4, -1048577, 131305, 4, 917505, 262377, 4, -393233, 590057, 1)
+layer_2/tile_data = PackedInt32Array(-1507340, 327913, 268435458, -1638411, 233, 4, -1114121, 458985, 268435456, -1310726, 327913, 4, -1048577, 131305, 4, -393233, 590057, 1)
 
 [node name="nav 3" type="NavigationRegion2D" parent="terrain/level 3"]
+visible = false
+z_index = 50
 position = Vector2(0, 480)
 navigation_polygon = ExtResource("6_2nlqt")
 enabled = false
@@ -149,6 +155,7 @@ layer_2/z_index = 20
 layer_2/tile_data = PackedInt32Array(-524304, 233, 0, -1703949, 65769, 4, -1638408, 393449, 4, 524287, 131305, 0, -1114103, 262377, 0, -1048567, 327913, 0, -1114102, 393449, 0, -917491, 327913, 3, -917490, 590057, 3, -786417, 262377, 2)
 
 [node name="nav 4" type="NavigationRegion2D" parent="terrain/level 4"]
+visible = false
 position = Vector2(0, 640)
 navigation_polygon = ExtResource("7_51imc")
 enabled = false
@@ -196,6 +203,7 @@ z_index = 50
 polygon = PackedVector2Array(-957, 2329, -303, 2632, -613, 2777, -1246, 2461)
 
 [node name="stairs" type="Node2D" parent="terrain"]
+visible = false
 
 [node name="0-1" type="StaticBody2D" parent="terrain/stairs"]
 collision_layer = 256
@@ -227,6 +235,43 @@ collision_layer = 512
 z_index = 50
 polygon = PackedVector2Array(-2401, 1150, -2107, 1314, -2245, 1462, -2550, 1303)
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="terrain/stairs/1-2"]
+z_index = 50
+polygon = PackedVector2Array(-968, -2505, -625, -2700, -319, -2372, -12, -2534, 32, -2477, -322, -2307, -629, -2627, -923, -2470)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="terrain/stairs/1-2"]
+z_index = 50
+polygon = PackedVector2Array(-62, -3300, 1192, -3930, 1268, -3856, 84, -3228)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="terrain/stairs/1-2"]
+z_index = 50
+polygon = PackedVector2Array(2837, -4104, 3462, -3790, 3350, -3668, 2738, -3992)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="terrain/stairs/1-2"]
+z_index = 50
+polygon = PackedVector2Array(4067, -4627, 4002, -4693, 3695, -4532, 3795, -4473)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="terrain/stairs/1-2"]
+z_index = 50
+polygon = PackedVector2Array(4330, -2526, 4632, -2373, 4946, -2695, 5317, -2501, 5259, -2450, 4947, -2611, 4642, -2308, 4281, -2483)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="terrain/stairs/1-2"]
+z_index = 50
+polygon = PackedVector2Array(5616, -2031, 5262, -2231, 4966, -1905, 4663, -2053, 4631, -2011, 4968, -1843, 5267, -2155, 5569, -1996)
+
+[node name="2-3" type="StaticBody2D" parent="terrain/stairs"]
+z_index = 50
+collision_layer = 1024
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="terrain/stairs/2-3"]
+polygon = PackedVector2Array(-638, -3307, -38, -3615, 44, -3547, -566, -3238)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="terrain/stairs/2-3"]
+polygon = PackedVector2Array(641, -4399, 954, -4243, 899, -4188, 601, -4342)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="terrain/stairs/2-3"]
+polygon = PackedVector2Array(5912, -2213, 5863, -2170, 6221, -1989, 6512, -2319, 6794, -2176, 6835, -2221, 6503, -2392, 6208, -2056)
+
 [node name="camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 z_index = 100
@@ -237,18 +282,20 @@ zoom = Vector2(0.2, 0.2)
 [node name="player" type="CharacterBody2D" parent="characters"]
 unique_name_in_owner = true
 z_index = 20
-position = Vector2(-2435, 4029)
+y_sort_enabled = true
 script = ExtResource("2_b22qd")
 speedVert = 1200
 speedHorz = 1200
 
 [node name="collision" type="CollisionShape2D" parent="characters/player"]
 z_index = 50
+y_sort_enabled = true
 position = Vector2(0, -96)
 shape = SubResource("RectangleShape2D_i5q5k")
 debug_color = Color(0.972549, 0, 0.427451, 0.286275)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="characters/player"]
+y_sort_enabled = true
 position = Vector2(0, -115)
 scale = Vector2(4.5, 4.5)
 sprite_frames = ExtResource("2_5hhyt")
