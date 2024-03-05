@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 
 @export var maxValue: int;
-@export var animateSecondary: bool;
+@export var indexMult: float = 1;
 
 var tens: AnimatedSprite2D;
 var ones: AnimatedSprite2D;
@@ -26,7 +26,4 @@ func setValue(v: int):
 		tens.frame = v / 10;
 	ones.frame = v % 10;
 	
-	if (animateSecondary):
-		self.frame = value / 2;
-	else:
-		self.frame = value;
+	self.frame = int(value * indexMult);

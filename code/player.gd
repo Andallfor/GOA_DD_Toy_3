@@ -24,6 +24,8 @@ var onAnimationFinish: Array[Callable] = [];
 
 const bulletInstance = preload("res://resources/sprites/shooting/bullet.tscn");
 
+var timeSinceLastDash = 0;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize();
@@ -36,12 +38,18 @@ func _physics_process(delta):
 		_isFirstRun = false;
 		return;
 	
+	timeSinceLastDash += delta;
+	
 	if (sprite.frame_progress == 1 && !animationFinished):
 		animationFinished = true;
 		for c in onAnimationFinish:
 			c.call();
 		
 		onAnimationFinish = [];
+	
+	if (timeSinceLastDash > 1.5):
+		%dash.setValue(%dash.value + 1);
+		timeSinceLastDash = 0;
 
 	var vec: Vector2 = Vector2(0, 0);
 	if (!blockingAnimations.has(sprite.animation) || sprite.frame_progress == 1):
@@ -73,6 +81,15 @@ func _physics_process(delta):
 			tryPlayAnimation("run");
 		else:
 			tryPlayAnimation("idle", ["run"]);
+	
+	# dash can animation cancel reload
+	if (Input.is_action_just_pressed("dash") && !sprite.animation == "shoot"):
+		if (%dash.value > 0):
+			tryPlayAnimation("idle", animationPriority);
+			onAnimationFinish = [];
+			vec *= 10;
+			timeSinceLastDash = 0;
+			%dash.setValue(%dash.value - 1);
 	
 	vec *= delta;
 	
