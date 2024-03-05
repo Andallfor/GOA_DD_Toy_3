@@ -22,7 +22,7 @@ var blockingAnimations: Array[String] = ["shoot", "reload"];
 var animationFinished: bool = false;
 var onAnimationFinish: Array[Callable] = [];
 
-const bulletInstance = preload("res://resources/sprites/shooting/shot/bullet.tscn");
+const bulletInstance = preload("res://resources/sprites/shooting/bullet.tscn");
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

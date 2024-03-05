@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bigcfcl87nknd"
-path="res://.godot/imported/pulse3.png-949336ec8d8b6783d3cf30f6fccad962.ctex"
+uid="uid://dq4eg4fbj4sx0"
+path="res://.godot/imported/hits-5-2.png-1c6ad07a62d7e997044c63b09870f17e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/shooting/shot/pulse3.png"
-dest_files=["res://.godot/imported/pulse3.png-949336ec8d8b6783d3cf30f6fccad962.ctex"]
+source_file="res://resources/sprites/shooting/explosion/hits-5-2.png"
+dest_files=["res://.godot/imported/hits-5-2.png-1c6ad07a62d7e997044c63b09870f17e.ctex"]
 
 [params]
 

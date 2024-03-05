@@ -1,15 +1,26 @@
-extends Area2D
+extends CharacterBody2D
 
-var timeElapsed: int = 0;
+var timeElapsed: float = 0;
+
+func _ready():
+	$sprite.play("shot");
 
 func _physics_process(delta):
-	self.global_position += transform.x * 16_000 * delta;
-	timeElapsed += delta;
-	
-	if (timeElapsed > 1_000):
+	if ($sprite.animation == "explosion" && $sprite.frame_progress == 1):
 		self.queue_free();
-
-func _on_body_entered(other):
-	var layer: int = other.get_collision_layer_value();
-	if (layer == 4):
+		return;
+	
+	if ($sprite.animation == "explosion"):
+		return;
+	
+	var collision: KinematicCollision2D = move_and_collide(transform.x * 16_000 * delta);
+	
+	if (collision):
+		self.position = collision.get_position();
+		$sprite.speed_scale = 3;
+		$sprite.play("explosion");
+		self.scale = Vector2(2.5, 2.5);
+	
+	timeElapsed += delta;
+	if (timeElapsed > 1):
 		self.queue_free();
