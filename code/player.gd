@@ -22,6 +22,8 @@ var blockingAnimations: Array[String] = ["shoot", "reload"];
 var animationFinished: bool = false;
 var onAnimationFinish: Array[Callable] = [];
 
+const bulletInstance = preload("res://resources/sprites/shooting/shot/bullet.tscn");
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize();
@@ -59,10 +61,9 @@ func _physics_process(delta):
 		
 		if (Input.is_action_just_pressed("shoot")):
 			if (%ammo.value > 0):
-				sprite.flip_h = get_viewport().get_mouse_position().x <= 1280 / 2;
-				tryPlayAnimation("shoot");
-				addShake(0.4);
-				%ammo.setValue(%ammo.value - 1);
+				var flip: bool = get_viewport().get_mouse_position().x <= 1280 / 2;
+				sprite.flip_h = flip;
+				shoot();
 		
 		if (Input.is_action_just_pressed("reload") && %ammo.value != %ammo.maxValue):
 			tryPlayAnimation("reload");
@@ -80,6 +81,16 @@ func _physics_process(delta):
 	%camera.position = self.position;
 	updateScreenShake(float(delta));
 	%camera.force_update_scroll(); # otherwise camera has one frame delay
+
+func shoot():
+	tryPlayAnimation("shoot");
+	addShake(0.4);
+	%ammo.setValue(%ammo.value - 1);
+	
+	%bulletSpawn.look_at(get_global_mouse_position());
+	var b: Node2D = bulletInstance.instantiate();
+	%bulletParent.add_child(b);
+	b.transform = %bulletSpawn.global_transform;
 
 func updatePlayerPosition(vec: Vector2):
 	# check if we're in a ramp transition for above and below levels
@@ -109,7 +120,6 @@ func updatePlayerPosition(vec: Vector2):
 			
 			if (e):
 				height = i * 10;
-
 	self.position = NavigationServer2D.map_get_closest_point(world, self.position + vec);
 
 func checkTransition(mask: int) -> bool:
@@ -142,10 +152,9 @@ func addShake(a: float):
 
 func updateScreenShake(delta: float):
 	if (shake):
-		shake = max(shake - float(3) * delta, 0);
+		shake = max(shake - float(1) * delta, 0);
 		
 		var amount: float = pow(shake, 2);
-		%camera.rotation = float(0.1) * amount * randf_range(-1, 1);
-		%camera.offset.x = 150 * amount * randf_range(-1, 1);
-		%camera.offset.y = 100 * amount * randf_range(-1, 1);
-
+		%camera.rotation = float(0.5) * amount * randf_range(-1, 1);
+		%camera.offset.x = 200 * amount * randf_range(-1, 1);
+		%camera.offset.y = 150 * amount * randf_range(-1, 1);

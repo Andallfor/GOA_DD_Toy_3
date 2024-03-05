@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q2c3hl2y4558"
-path="res://.godot/imported/tile_0012-export_empty.png-0d6d7df579369a9bd4979d165d3075fc.ctex"
+uid="uid://k5gbo20om178"
+path="res://.godot/imported/pixelart_starfield.png-b67e5369451e1df690965e1de202b1c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/shooting/tile_0012-export_empty.png"
-dest_files=["res://.godot/imported/tile_0012-export_empty.png-0d6d7df579369a9bd4979d165d3075fc.ctex"]
+source_file="res://resources/skybox/pixelart_starfield.png"
+dest_files=["res://.godot/imported/pixelart_starfield.png-b67e5369451e1df690965e1de202b1c5.ctex"]
 
 [params]
 

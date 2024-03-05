@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmy34s14tpoce"
-path="res://.godot/imported/tile_0012-export.png-f4c06f511ef48ca7ab1e87d055833e21.ctex"
+uid="uid://bigcfcl87nknd"
+path="res://.godot/imported/pulse3.png-949336ec8d8b6783d3cf30f6fccad962.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/shooting/tile_0012-export.png"
-dest_files=["res://.godot/imported/tile_0012-export.png-f4c06f511ef48ca7ab1e87d055833e21.ctex"]
+source_file="res://resources/sprites/shooting/shot/pulse3.png"
+dest_files=["res://.godot/imported/pulse3.png-949336ec8d8b6783d3cf30f6fccad962.ctex"]
 
 [params]
 
