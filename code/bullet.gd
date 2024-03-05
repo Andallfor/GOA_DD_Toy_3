@@ -17,10 +17,11 @@ func _physics_process(delta):
 	
 	if (collision):
 		self.position = collision.get_position();
+		self.z_index = 100;
 		$sprite.speed_scale = 3;
 		$sprite.play("explosion");
 		self.scale = Vector2(2.5, 2.5);
 	
 	timeElapsed += delta;
-	if (timeElapsed > 1):
+	if (timeElapsed > 5):
 		self.queue_free();

@@ -220,10 +220,11 @@ layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-458746, 262391, 268435456, -393210, 262391, 268435456, -720889, 262391, 268435456, -655353, 262391, 268435456, -196599, 262391, 268435456)
 layer_2/name = "detail"
 layer_2/y_sort_enabled = true
-layer_2/z_index = 15
+layer_2/z_index = 20
 layer_2/tile_data = PackedInt32Array(1310728, 131319, 1, 917506, 590057, 2)
 
 [node name="nav 1" type="NavigationRegion2D" parent="terrain/level 1"]
+visible = false
 z_index = 50
 position = Vector2(0, 160)
 navigation_polygon = ExtResource("3_gpsm5")
@@ -234,7 +235,43 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
-polygon = PackedVector2Array(-1221.61, 2460.87, -997.997, 2192.71, -663.91, 2288.04, -388.622, 2495.62, -320.023, 2625.69, -474.149, 2701.41, -963.252, 2461.76, -1095.1, 2541.94)
+polygon = PackedVector2Array(-1187.83, 2483.88, -1185.59, 2373.88, -1139.01, 2350.87, -1034.62, 2217.3, -997.997, 2192.71, -844.361, 2269.5, -762.421, 2238.63, -676.553, 2279.04, -620.474, 2329.63, -513.345, 2394.81, -415.955, 2459.24, -392.732, 2471.22, -366.511, 2623.3, -408.464, 2670.5, -464.65, 2712.45, -650.572, 2662.23, -795.189, 2567.94, -963.252, 2461.76, -1095.1, 2541.94)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(-4065.89, 1822.77, -4081.01, 2040.74, -4029.35, 2116.34, -3902.1, 2131.46, -3929.81, 1952.55, -3948.71, 1815.21)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(-1898, 3843, -1776, 3853, -1723, 4142, -1839, 4140, -1916, 4061)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(-1740.77, 1226.77, -1674.34, 1040.93, -1563.34, 1029.16, -1472.53, 1040.09, -1407.78, 1112.41, -1370.78, 1178, -1429.64, 1280.59, -1668.46, 1282.27)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(-120.338, 1076.72, 92.5882, 1163.66, 247.559, 1045.22, 135.426, 975.298, 107.707, 868.835, 62.3501, 880.804, -113.409, 950.73, -154.356, 992.937)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(84.2349, -323.998, 465.872, -256.651, 525.362, -362.162, 480.464, -474.408, 345.769, -537.266, 276.176, -457.571, 138.113, -399.203)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(988.194, -461.726, 1100.87, -411.272, 1184.96, -481.907, 1296.8, -436.499, 1296.8, -306.16, 1407.8, -256.547, 1498.62, -329.705, 1663.43, -233.843, 1693.71, -122.845, 1889.63, -62.3002, 2057.81, -168.253, 2019.13, -546.657, 1988.02, -571.883, 1891.32, -574.406, 1807.23, -541.611, 1781.16, -516.384, 1719.77, -551.702, 1648.3, -507.975, 1482.64, -592.065, 1491.05, -661.018, 1411.16, -708.109, 1338.01, -662.7, 1169.83, -746.79, 1132.83, -727.449, 1147.12, -621.496, 1026.88, -595.429, 992.398, -578.611)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(5659.35, -952.657, 5860.32, -872.772, 6047.84, -882.863, 6113.43, -986.293, 6055.41, -1088.04, 5930.12, -1159.52, 5856.12, -1075.43, 5725.78, -1024.97)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(4135, -1569, 4086, -1836, 3985, -1907, 3956, -1782, 3957, -1689, 3966, -1610)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(342.494, -1784.6, 432.29, -1710.52, 579.333, -1616.23, 703.926, -1631.94, 980.052, -1484.9, 1081.07, -1490.51, 1141.69, -1532.04, 1148.88, -1657.54, 1031.26, -1898.02, 873.939, -1927.23, 795.845, -1936.76, 707.627, -2065.08, 633.461, -2114.52, 535.322, -2126.51, 473.142, -2105.53, 354.776, -2101.79, 265.627, -2041.85, 115.047, -2041.85, 76.0908, -2073.32, 10.9145, -2076.32, -40.7771, -2075.57, -105.954, -2050.84, -208.588, -1813.36, -219.076, -1691.25, -132.174, -1650.05, -40.028, -1642.55, 97.0671, -1701.74)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(1802.28, -1778.99, 1896.73, -1728.99, 1978.48, -1832.17, 1970.55, -1873.44, 1920.54, -1894.08, 1872.13, -1890.91)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(1964.77, -3096.14, 2103.75, -3043.58, 2365.68, -3071.2, 2269.46, -3223.54, 2188.39, -3278.78, 2084.15, -3244.92, 1986.15, -3179.89)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
+polygon = PackedVector2Array(210.885, -2798.32, 398.41, -2795.14, 369.805, -3035.64, 249.026, -3016.57)
 
 [node name="level 2" type="TileMap" parent="terrain"]
 y_sort_enabled = true
@@ -252,7 +289,7 @@ layer_1/tile_data = PackedInt32Array(-786442, 262391, 268435456, -720906, 262391
 layer_2/name = "detail"
 layer_2/y_sort_enabled = true
 layer_2/z_index = 20
-layer_2/tile_data = PackedInt32Array(-196616, 590057, 2, -262149, 65769, 1, 589827, 196841, 1, 524290, 65769, 1, -458755, 655593, 3, -983046, 524521, 3, 1114122, 131305, 4, 655366, 458985, 268435458, 655367, 393449, 268435458, 458759, 393449, 3, 262147, 393449, 0, 458753, 327913, 0, -1, 458985, 0, -196607, 458985, 268435458, -196608, 458985, 268435458, -196606, 524521, 0, -327686, 262377, 0, -262150, 655593, 268435456, -327685, 524521, 268435456, -327684, 590057, 0, -458752, 524521, 3, -720895, 65769, 4, -786439, 65769, 0, -786426, 458985, 0, -524297, 196841, 4, 917504, 131305, 4)
+layer_2/tile_data = PackedInt32Array(-196616, 590057, 2, -262149, 65769, 1, 589827, 196841, 1, 524290, 65769, 1, -458755, 655593, 3, -983046, 524521, 3, 1114122, 131305, 4, 655366, 458985, 268435458, 655367, 393449, 268435458, 262147, 393449, 0, 458753, 327913, 0, -1, 458985, 0, -196607, 458985, 268435458, -196608, 458985, 268435458, -196606, 524521, 0, -327686, 262377, 0, -262150, 655593, 268435456, -327685, 524521, 268435456, -327684, 590057, 0, -458752, 524521, 3, -720895, 65769, 4, -786439, 65769, 0, -786426, 458985, 0, -524297, 196841, 4, 917504, 131305, 4)
 
 [node name="nav 2" type="NavigationRegion2D" parent="terrain/level 2"]
 visible = false
@@ -261,6 +298,31 @@ position = Vector2(0, 320)
 navigation_polygon = ExtResource("5_s1ve1")
 enabled = false
 script = ExtResource("4_vpb4x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="terrain/level 2/nav 2"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="terrain/level 2/nav 2/StaticBody2D"]
+polygon = PackedVector2Array(-2991.01, -3888.03, -2919.18, -3969.97, -2863.05, -4124.87, -2585.81, -4047.42, -2582.44, -3940.79, -2617.23, -3821.81, -2690.19, -3791.5, -2833.87, -3819.56)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="terrain/level 2/nav 2/StaticBody2D"]
+polygon = PackedVector2Array(2939.39, -4311.72, 3107.76, -4284.78, 3341.23, -4347.63, 3266.02, -4437.43, 3141.43, -4475.59, 3070.72, -4565.39, 2930.41, -4505.9, 2881.02, -4395.9)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="terrain/level 2/nav 2/StaticBody2D"]
+polygon = PackedVector2Array(4863.05, -4347.62, 5100.89, -4351.19, 5052.14, -4598.54, 4908.24, -4617.57)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="terrain/level 2/nav 2/StaticBody2D"]
+polygon = PackedVector2Array(5807.72, -5616.1, 6011.49, -5608.61, 5965.04, -5857.33, 5842.18, -5849.84)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="terrain/level 2/nav 2/StaticBody2D"]
+polygon = PackedVector2Array(4711.22, -5955.28, 4868.02, -5828.15, 5075.68, -5815.44, 5174.21, -5945.75, 5073.56, -6121.62, 4803.4, -6116.32)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="terrain/level 2/nav 2/StaticBody2D"]
+polygon = PackedVector2Array(3790.45, -5776.74, 3910.15, -5655.79, 4192.37, -5678.47, 4290.64, -5750.29, 4265.44, -5905.26, 3963.06, -6021.17, 3872.35, -6002.27)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="terrain/level 2/nav 2/StaticBody2D"]
+polygon = PackedVector2Array(5202, -3031, 5411, -2979, 5357, -3241, 5230, -3249)
 
 [node name="level 3" type="TileMap" parent="terrain"]
 y_sort_enabled = true
@@ -290,6 +352,19 @@ enabled = false
 use_edge_connections = false
 script = ExtResource("4_vpb4x")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="terrain/level 3/nav 3"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="terrain/level 3/nav 3/StaticBody2D"]
+polygon = PackedVector2Array(-2012.41, -4201.38, -1906.57, -4147.87, -1656.84, -4247.76, -1760.3, -4402.36, -1887.55, -4440.41, -2023.12, -4433.28)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="terrain/level 3/nav 3/StaticBody2D"]
+polygon = PackedVector2Array(7925.72, -1374.84, 8182.75, -1371.06, 8354.1, -1485.71, 8580.88, -1388.69, 8766.09, -1319.4, 8921.06, -1442.87, 8841.69, -1578.94, 8743.41, -1629.34, 8577.1, -1616.74, 8412.05, -1809.51, 8316.3, -1726.35, 8218.03, -1723.83, 8136.13, -1629.34, 8044.16, -1630.6, 7968.56, -1674.7, 7872.81, -1422.71)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="terrain/level 3/nav 3/StaticBody2D"]
+polygon = PackedVector2Array(8434, 114, 8680, 229, 8837, 217, 8931, 71, 8915, -29, 8830, -94, 8627, -149, 8468, -109, 8433, 7)
+
 [node name="level 4" type="TileMap" parent="terrain"]
 y_sort_enabled = true
 position = Vector2(0, -640)
@@ -307,7 +382,7 @@ layer_2/name = "detail"
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 10
 layer_2/z_index = 20
-layer_2/tile_data = PackedInt32Array(-524304, 233, 0, -1703949, 65769, 4, -1638408, 393449, 4, 524287, 131305, 0, -1114103, 262377, 0, -1048567, 327913, 0, -1114102, 393449, 0, -917491, 327913, 3, -917490, 590057, 3, -786417, 262377, 2)
+layer_2/tile_data = PackedInt32Array(-524304, 233, 0, -1703949, 65769, 4, -1638408, 393449, 4, 524287, 131305, 0, -1114103, 262377, 0, -1048567, 327913, 0, -1114102, 393449, 0, -917490, 590057, 3, -786417, 262377, 2)
 
 [node name="nav 4" type="NavigationRegion2D" parent="terrain/level 4"]
 visible = false
@@ -441,7 +516,7 @@ position = Vector2(-2750, 3530)
 
 [node name="player" type="CharacterBody2D" parent="characters"]
 unique_name_in_owner = true
-z_index = 20
+z_index = 21
 y_sort_enabled = true
 script = ExtResource("2_b22qd")
 speedVert = 1200
@@ -464,6 +539,9 @@ scale = Vector2(4.5, 4.5)
 sprite_frames = ExtResource("2_5hhyt")
 animation = &"idle"
 speed_scale = 1.25
+
+[node name="bulletParent" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="ui" type="CanvasLayer" parent="."]
 
@@ -528,6 +606,3 @@ frame_progress = 0.0
 position = Vector2(13, 0)
 scale = Vector2(0.35, 0.35)
 frame_progress = 0.0
-
-[node name="bulletParent" type="Node2D" parent="."]
-unique_name_in_owner = true
