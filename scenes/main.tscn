@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://c4opqv2u4w2uq"]
+[gd_scene load_steps=89 format=3 uid="uid://c4opqv2u4w2uq"]
 
 [ext_resource type="Script" path="res://code/tilemapController.gd" id="1_4apva"]
 [ext_resource type="TileSet" uid="uid://cmrgy7kad3vy5" path="res://resources/tilemap/tileset.tres" id="1_16a7u"]
@@ -16,8 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://2uylru4hmiyv" path="res://resources/sprites/ui/All.png" id="12_ra4p4"]
 [ext_resource type="Texture2D" uid="uid://b7ebqy05ldog2" path="res://resources/sprites/ui/06.png" id="12_u4klu"]
 [ext_resource type="PackedScene" uid="uid://cssl6tac4smim" path="res://resources/text/text_small.tscn" id="13_7nwvw"]
-[ext_resource type="Texture2D" uid="uid://cbldf7ggtl5nv" path="res://resources/sprites/enemy/enemies x3.png" id="13_mpryq"]
-[ext_resource type="Script" path="res://code/enemy.gd" id="13_sphrw"]
+[ext_resource type="PackedScene" uid="uid://b3tlh20aruxdd" path="res://resources/sprites/enemy/sniper.tscn" id="14_0j1dr"]
 [ext_resource type="PackedScene" uid="uid://cmud03tta78ao" path="res://resources/text/text_big.tscn" id="14_pd7p4"]
 [ext_resource type="Texture2D" uid="uid://dcfxbuss4bwt0" path="res://resources/sprites/enemy/boss x3.png" id="14_vfsgn"]
 [ext_resource type="Script" path="res://code/enemyController.gd" id="16_cp551"]
@@ -267,172 +266,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfc01"]
 size = Vector2(669.883, 583.37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oog1e"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(0, 960, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2yjpw"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(96, 960, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gre1t"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(192, 960, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fcx0m"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(288, 960, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ec1l5"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(384, 960, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pnchi"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(480, 960, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uw8jy"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(576, 960, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cbtk0"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(672, 960, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rivvv"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(0, 576, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7if5k"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(96, 576, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_84c4r"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(192, 576, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_blh6i"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(288, 576, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eerkn"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(0, 768, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2bol5"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(96, 768, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2d1bg"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(192, 768, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hmunx"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(288, 768, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ik25"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(0, 864, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0p45c"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(96, 864, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oifm0"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(192, 864, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xv04"]
-atlas = ExtResource("13_mpryq")
-region = Rect2(288, 864, 96, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3pq2u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oog1e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2yjpw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gre1t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fcx0m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ec1l5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pnchi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uw8jy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cbtk0")
-}],
-"loop": false,
-"name": &"death",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rivvv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7if5k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_84c4r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_blh6i")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eerkn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2bol5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2d1bg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hmunx")
-}],
-"loop": false,
-"name": &"run",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7ik25")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0p45c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oifm0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3xv04")
-}],
-"loop": false,
-"name": &"shoot",
-"speed": 10.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3xb1"]
-size = Vector2(359.34, 419.807)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_axhbw"]
 atlas = ExtResource("17_d2i15")
@@ -791,7 +624,7 @@ script = ExtResource("4_vpb4x")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="terrain/level 1/nav 1"]
 collision_layer = 8
-collision_mask = 8
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="terrain/level 1/nav 1/StaticBody2D"]
 polygon = PackedVector2Array(-1187.83, 2483.88, -1185.59, 2373.88, -1139.01, 2350.87, -1034.62, 2217.3, -997.997, 2192.71, -844.361, 2269.5, -762.421, 2238.63, -676.553, 2279.04, -620.474, 2329.63, -513.345, 2394.81, -415.955, 2459.24, -392.732, 2471.22, -366.511, 2623.3, -408.464, 2670.5, -464.65, 2712.45, -650.572, 2662.23, -795.189, 2567.94, -963.252, 2461.76, -1095.1, 2541.94)
@@ -859,7 +692,7 @@ script = ExtResource("4_vpb4x")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="terrain/level 2/nav 2"]
 collision_layer = 8
-collision_mask = 8
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="terrain/level 2/nav 2/StaticBody2D"]
 polygon = PackedVector2Array(-2991.01, -3888.03, -2919.18, -3969.97, -2863.05, -4124.87, -2585.81, -4047.42, -2582.44, -3940.79, -2617.23, -3821.81, -2690.19, -3791.5, -2833.87, -3819.56)
@@ -942,7 +775,7 @@ script = ExtResource("4_vpb4x")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="terrain/level 3/nav 3"]
 collision_layer = 8
-collision_mask = 8
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="terrain/level 3/nav 3/StaticBody2D"]
 polygon = PackedVector2Array(-2012.41, -4201.38, -1906.57, -4147.87, -1656.84, -4247.76, -1760.3, -4402.36, -1887.55, -4440.41, -2023.12, -4433.28)
@@ -1092,6 +925,7 @@ frame_progress = 1.0
 speed_scale = 1.25
 
 [node name="rifler" type="CharacterBody2D" parent="characters"]
+visible = false
 metadata/enemy = ""
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="characters/rifler"]
@@ -1107,32 +941,8 @@ position = Vector2(32.4129, 102.887)
 shape = SubResource("RectangleShape2D_nfc01")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="sniper" type="CharacterBody2D" parent="characters"]
-position = Vector2(566, -116)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("13_sphrw")
-minDist = 1500.0
-metadata/enemy = ""
-
-[node name="sprite" type="AnimatedSprite2D" parent="characters/sniper"]
-z_index = 19
-position = Vector2(0, -208.743)
-scale = Vector2(4.5, 4.5)
-sprite_frames = SubResource("SpriteFrames_3pq2u")
-animation = &"run"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="characters/sniper"]
-z_index = 50
-position = Vector2(-9.87775, -187.905)
-shape = SubResource("RectangleShape2D_j3xb1")
-
-[node name="parent" type="Node2D" parent="characters/sniper"]
-position = Vector2(0, -226)
-
-[node name="spawn" type="Node2D" parent="characters/sniper/parent"]
-
 [node name="rifleRound" type="CharacterBody2D" parent="characters"]
+visible = false
 z_index = 100
 collision_layer = 10
 collision_mask = 10
@@ -1152,6 +962,30 @@ shape = SubResource("RectangleShape2D_x6i8t")
 [node name="enemyController" type="Node2D" parent="characters"]
 unique_name_in_owner = true
 script = ExtResource("16_cp551")
+
+[node name="sniper" parent="characters/enemyController" instance=ExtResource("14_0j1dr")]
+position = Vector2(-1253, -3826)
+health = 4
+
+[node name="sniper2" parent="characters/enemyController" instance=ExtResource("14_0j1dr")]
+position = Vector2(5607, -4949)
+health = 4
+
+[node name="sniper3" parent="characters/enemyController" instance=ExtResource("14_0j1dr")]
+position = Vector2(8175, -725)
+health = 4
+
+[node name="sniper4" parent="characters/enemyController" instance=ExtResource("14_0j1dr")]
+position = Vector2(-63, 2120)
+health = 4
+
+[node name="sniper5" parent="characters/enemyController" instance=ExtResource("14_0j1dr")]
+position = Vector2(916, -2304)
+health = 4
+
+[node name="sniper6" parent="characters/enemyController" instance=ExtResource("14_0j1dr")]
+position = Vector2(3333, -2123)
+health = 4
 
 [node name="bulletParent" type="Node2D" parent="."]
 unique_name_in_owner = true

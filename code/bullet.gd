@@ -33,6 +33,8 @@ func _physics_process(delta):
 			var b: Node2D = pierce.instantiate();
 			self.get_parent().add_child(b);
 			b.global_position = col.get_position();
+			
+			self.add_collision_exception_with(col.get_collider());
 		else:
 			explode(col);
 	

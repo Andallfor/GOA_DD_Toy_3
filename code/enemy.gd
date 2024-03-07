@@ -15,6 +15,7 @@ var path: PackedVector2Array = PackedVector2Array([]);
 var pathIndex: int = 0;
 var rng = RandomNumberGenerator.new();
 var currentFireInterval: float = 0;
+var timeSinceLastSeen: float = 1000;
 
 func _ready() -> void:
 	%enemyController.register(self);
@@ -29,12 +30,28 @@ func _physics_process(delta: float) -> void:
 			%enemyController.registeredEnemies.erase(self);
 			self.queue_free();
 		return;
+		
+	var dist = %player.position - self.position;
+	if (dist.length() > 5_000):
+		return;
+	
+	# check if we can see player
+	var state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state;
+	var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(self.global_position, %player.global_position, 1 << 3);
+	var vis := state.intersect_ray(query);
+	
+	if (vis):
+		timeSinceLastSeen += delta;
+		if (timeSinceLastSeen > 2):
+			$sprite.play("idle");
+			return;
+	else:
+		timeSinceLastSeen = 0;
 	
 	if ($sprite.animation == "shoot" && $sprite.is_playing()):
 		return;
 	currentFireInterval += delta;
 	
-	var dist = %player.position - self.position;
 	if (abs(dist.length()) < minFireDist && currentFireInterval > minFireInterval):
 		if (rng.randi_range(0, 10) == 2):
 			currentFireInterval = 0;

@@ -110,12 +110,13 @@ size = Vector2(118, 14)
 
 [node name="sniperRound" type="CharacterBody2D"]
 z_index = 100
-collision_layer = 10
-collision_mask = 10
+collision_layer = 0
+collision_mask = 26
 script = ExtResource("1_5htw7")
 animation = "bullet"
 speed = 4000.0
 damage = 2
+metadata/enemyBullet = ""
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
