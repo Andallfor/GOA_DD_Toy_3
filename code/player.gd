@@ -26,10 +26,13 @@ const bulletInstance = preload("res://resources/sprites/shooting/bullet.tscn");
 
 var timeSinceLastDash = 0;
 
+@onready var _health: Node2D;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize();
 	self.position = %spawn.position;
+	_health = %health;
 	sprite = get_node("sprite");
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,7 +43,7 @@ func _physics_process(delta):
 	
 	timeSinceLastDash += delta;
 	
-	if (sprite.frame_progress == 1 && !animationFinished):
+	if (!sprite.is_playing() && !animationFinished):
 		animationFinished = true;
 		for c in onAnimationFinish:
 			c.call();
@@ -52,7 +55,7 @@ func _physics_process(delta):
 		timeSinceLastDash = 0;
 
 	var vec: Vector2 = Vector2(0, 0);
-	if (!blockingAnimations.has(sprite.animation) || sprite.frame_progress == 1):
+	if (!blockingAnimations.has(sprite.animation) || !sprite.is_playing()):
 		if (Input.is_action_pressed("move_up")):
 			vec.y -= speedVert;
 		
@@ -110,6 +113,9 @@ func shoot():
 	b.transform = %bulletSpawn.global_transform;
 
 func updatePlayerPosition(vec: Vector2):
+	if (%enemyController.isUpdating):
+		return;
+
 	# check if we're in a ramp transition for above and below levels
 	# note that height at mod 10 is considered to be at the surface of that tile layer
 	# height 0 is the surface of the first tile layer, not the bottom
@@ -154,7 +160,7 @@ func checkTransition(mask: int) -> bool:
 func tryPlayAnimation(name: String, ignore: Array[String] = []):
 	# shush
 	# if new priority is greater than old priority (0 is greatest priority)
-	var isDone: bool = sprite.frame_progress == 1;
+	var isDone: bool = !sprite.is_playing();
 	var override: bool = ignore.has(sprite.animation);
 	var priority: bool = animationPriority.find(name) < animationPriority.find(sprite.animation);
 	if (isDone || override || priority):

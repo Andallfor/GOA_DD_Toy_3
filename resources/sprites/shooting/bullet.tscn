@@ -65,14 +65,15 @@ size = Vector2(220.598, 59.4604)
 [node name="bullet" type="CharacterBody2D"]
 z_index = 19
 collision_layer = 8
-collision_mask = 8
+collision_mask = 12
 script = ExtResource("1_ilqbh")
+explosionScale = 2.5
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dpvdy")
-animation = &"shot"
+animation = &"explosion"
 speed_scale = 2.5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(18.76, 4.43042)
 shape = SubResource("RectangleShape2D_u0tto")
