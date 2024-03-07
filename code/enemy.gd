@@ -6,16 +6,18 @@ extends CharacterBody2D
 @export var minFireInterval: float = 1.5;
 @export var isBullet: bool = true;
 @export var health: int = 3;
+@export var hiddenTimer: float = 2;
 var _isFirstRun: bool = true;
 
 const bullet = preload("res://resources/sprites/enemy/sniper_round.tscn");
-const rocket = preload("res://resources/sprites/enemy/sniper_round.tscn");
+const rocket = preload("res://resources/sprites/enemy/rifle_round.tscn");
 
 var path: PackedVector2Array = PackedVector2Array([]);
 var pathIndex: int = 0;
 var rng = RandomNumberGenerator.new();
 var currentFireInterval: float = 0;
 var timeSinceLastSeen: float = 1000;
+var lastSubFireInterval: float = 0;
 
 func _ready() -> void:
 	%enemyController.register(self);
@@ -42,15 +44,21 @@ func _physics_process(delta: float) -> void:
 	
 	if (vis):
 		timeSinceLastSeen += delta;
-		if (timeSinceLastSeen > 2):
+		if (timeSinceLastSeen > hiddenTimer):
 			$sprite.play("idle");
 			return;
 	else:
 		timeSinceLastSeen = 0;
 	
 	if ($sprite.animation == "shoot" && $sprite.is_playing()):
+		if (!isBullet):
+			lastSubFireInterval += delta;
+			if (lastSubFireInterval > 0.3):
+				shoot();
+				lastSubFireInterval = 0;
 		return;
 	currentFireInterval += delta;
+	lastSubFireInterval = 0;
 	
 	if (abs(dist.length()) < minFireDist && currentFireInterval > minFireInterval):
 		if (rng.randi_range(0, 10) == 2):
@@ -85,6 +93,7 @@ func shoot():
 	$sprite.play("shoot");
 	
 	$parent/spawn.look_at(%player.position);
-	var b: Node2D = bullet.instantiate();
+	var b: Node2D = bullet.instantiate() if (isBullet) else rocket.instantiate();
 	%bulletParent.add_child(b);
+
 	b.transform = $parent/spawn.global_transform;

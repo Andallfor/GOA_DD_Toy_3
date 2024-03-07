@@ -12,11 +12,9 @@ func _ready():
 	$sprite.play(animation);
 
 func _physics_process(delta):
-	if ($sprite.animation == "explosion" && !$sprite.is_playing()):
-		self.queue_free();
-		return;
-	
 	if ($sprite.animation == "explosion"):
+		if (!$sprite.is_playing()):
+			self.queue_free();
 		return;
 	
 	var col: KinematicCollision2D = move_and_collide(transform.x * speed * delta);
