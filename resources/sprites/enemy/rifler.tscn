@@ -242,7 +242,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot",
-"speed": 5.0
+"speed": 5.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -273,10 +273,11 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_8qsfs")
 speed = 100.0
-minFireDist = 1500.0
+minDist = 200.0
+minFireDist = 2500.0
 minFireInterval = 0.75
 isBullet = false
-health = 5
+health = 4
 hiddenTimer = 5.0
 metadata/enemy = ""
 
@@ -297,3 +298,6 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 position = Vector2(0, -226)
 
 [node name="spawn" type="Node2D" parent="parent"]
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+max_distance = 5000.0

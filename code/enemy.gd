@@ -30,7 +30,9 @@ func _physics_process(delta: float) -> void:
 	if ($sprite.animation == "death"):
 		if (!$sprite.is_playing()):
 			%enemyController.registeredEnemies.erase(self);
-			self.queue_free();
+			$sprite.visible = false;
+			if (!$audio.playing):
+				self.queue_free();
 		return;
 		
 	var dist = %player.position - self.position;
@@ -48,14 +50,24 @@ func _physics_process(delta: float) -> void:
 			$sprite.play("idle");
 			return;
 	else:
+		if (timeSinceLastSeen > hiddenTimer):
+			$audio.stream = get_node("/root/AudioController").enemySee;
+			$audio.play();
 		timeSinceLastSeen = 0;
 	
 	if ($sprite.animation == "shoot" && $sprite.is_playing()):
 		if (!isBullet):
+			if (!$audio.playing && $sprite.frame == 0):
+				$audio.stream = get_node("/root/AudioController").riflerFire;
+				$audio.play();
 			lastSubFireInterval += delta;
 			if (lastSubFireInterval > 0.3):
 				shoot();
 				lastSubFireInterval = 0;
+		else:
+			if (!$audio.playing):
+				$audio.stream = get_node("/root/AudioController").sniperFire;
+				$audio.play();
 		return;
 	currentFireInterval += delta;
 	lastSubFireInterval = 0;
@@ -88,6 +100,8 @@ func takeDamage(dmg: int):
 	self.health -= dmg;
 	if (self.health <= 0):
 		$sprite.play("death");
+		$audio.stream = get_node("/root/AudioController").riflerDie;
+		$audio.play();
 
 func shoot():
 	$sprite.play("shoot");

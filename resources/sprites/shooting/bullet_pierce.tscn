@@ -36,3 +36,6 @@ sprite_frames = SubResource("SpriteFrames_wsxh5")
 frame = 4
 frame_progress = 1.0
 script = ExtResource("6_j0b8q")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+max_distance = 5000.0

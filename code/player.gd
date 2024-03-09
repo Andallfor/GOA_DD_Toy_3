@@ -37,6 +37,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	var enemiesLeft: int = %enemyController.registeredEnemies.size();
+	
+	%enemyLeft.text = "Enemies Left: " + str(enemiesLeft);
+	if (_health.value <= 0 || enemiesLeft == 0):
+		$sprite.animation = "idle";
+		if (enemiesLeft == 0):
+			%win.visible = true;
+		return;
+
 	if (_isFirstRun): # one frame delay to allow nav server to sync
 		_isFirstRun = false;
 		return;
@@ -53,6 +62,9 @@ func _physics_process(delta):
 	if (timeSinceLastDash > 1.5):
 		%dash.setValue(%dash.value + 1);
 		timeSinceLastDash = 0;
+	
+	if (Input.is_action_pressed("heal")):
+		%health.setValue(10);
 
 	var vec: Vector2 = Vector2(0, 0);
 	if (!blockingAnimations.has(sprite.animation) || !sprite.is_playing()):
@@ -77,6 +89,8 @@ func _physics_process(delta):
 				shoot();
 		
 		if (Input.is_action_just_pressed("reload") && %ammo.value != %ammo.maxValue):
+			$audio.stream = get_node("/root/AudioController").reload;
+			$audio.play();
 			tryPlayAnimation("reload");
 			onAnimationFinish.append(func(): %ammo.setValue(%ammo.maxValue));
 
@@ -84,15 +98,6 @@ func _physics_process(delta):
 			tryPlayAnimation("run");
 		else:
 			tryPlayAnimation("idle", ["run"]);
-	
-	# dash can animation cancel reload
-	if (Input.is_action_just_pressed("dash") && !sprite.animation == "shoot"):
-		if (%dash.value > 0):
-			tryPlayAnimation("idle", animationPriority);
-			onAnimationFinish = [];
-			vec *= 10;
-			timeSinceLastDash = 0;
-			%dash.setValue(%dash.value - 1);
 	
 	vec *= delta;
 	
@@ -107,8 +112,12 @@ func shoot():
 	addShake(0.4);
 	%ammo.setValue(%ammo.value - 1);
 	
+	$audio.stream = get_node("/root/AudioController").playerFire;
+	$audio.play();
+	
 	%bulletSpawn.look_at(get_global_mouse_position());
 	var b: Node2D = bulletInstance.instantiate();
+	b.isPlayer = true;
 	%bulletParent.add_child(b);
 	b.transform = %bulletSpawn.global_transform;
 
@@ -181,3 +190,14 @@ func updateScreenShake(delta: float):
 		%camera.rotation = float(0.5) * amount * randf_range(-1, 1);
 		%camera.offset.x = 200 * amount * randf_range(-1, 1);
 		%camera.offset.y = 150 * amount * randf_range(-1, 1);
+
+func takeDamage(damage: int):
+	if (_health.value <= 0):
+		return;
+	_health.setValue(_health.value - damage);
+	
+	if (_health.value <= 0):
+		%lose.visible = true;
+		$audio.stream = get_node("/root/AudioController").sniperDie;
+		$audio.play();
+		$sprite.play("death");

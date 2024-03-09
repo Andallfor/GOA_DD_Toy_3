@@ -77,3 +77,6 @@ speed_scale = 2.5
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(18.76, 4.43042)
 shape = SubResource("RectangleShape2D_u0tto")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+max_distance = 5000.0

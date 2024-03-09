@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c4opqv2u4w2uq"]
+[gd_scene load_steps=44 format=3 uid="uid://c4opqv2u4w2uq"]
 
 [ext_resource type="Script" path="res://code/tilemapController.gd" id="1_4apva"]
 [ext_resource type="TileSet" uid="uid://cmrgy7kad3vy5" path="res://resources/tilemap/tileset.tres" id="1_16a7u"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cmud03tta78ao" path="res://resources/text/text_big.tscn" id="14_pd7p4"]
 [ext_resource type="Script" path="res://code/enemyController.gd" id="16_cp551"]
 [ext_resource type="PackedScene" uid="uid://bq7scjjk6f6yl" path="res://resources/sprites/enemy/rifler.tscn" id="20_mo6um"]
+[ext_resource type="FontFile" uid="uid://so8q7eaifl2h" path="res://resources/Kenney Future Narrow.ttf" id="21_4tgem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5q5k"]
 size = Vector2(121, 195.5)
@@ -159,6 +160,12 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_emi1s"]
+colors = PackedColorArray(0, 0, 0, 0.501961, 0, 0, 0, 0.501961)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dgpgk"]
+gradient = SubResource("Gradient_emi1s")
 
 [node name="main" type="Node2D"]
 y_sort_enabled = true
@@ -573,8 +580,9 @@ position = Vector2(0, -115)
 scale = Vector2(4.5, 4.5)
 sprite_frames = ExtResource("2_5hhyt")
 animation = &"idle"
-frame_progress = 1.0
 speed_scale = 1.25
+
+[node name="audio" type="AudioStreamPlayer2D" parent="characters/player"]
 
 [node name="enemyController" type="Node2D" parent="characters"]
 unique_name_in_owner = true
@@ -639,6 +647,7 @@ frame_progress = 0.0
 
 [node name="dash" type="AnimatedSprite2D" parent="ui"]
 unique_name_in_owner = true
+visible = false
 z_index = 100
 position = Vector2(1087.45, 555.814)
 scale = Vector2(0.5, 0.5)
@@ -699,3 +708,123 @@ frame_progress = 0.0
 position = Vector2(13, 0)
 scale = Vector2(0.35, 0.35)
 frame_progress = 0.0
+
+[node name="enemyLeft" type="RichTextLabel" parent="ui"]
+unique_name_in_owner = true
+offset_left = 8.0
+offset_top = 621.0
+offset_right = 328.0
+offset_bottom = 650.0
+theme_override_fonts/normal_font = ExtResource("21_4tgem")
+theme_override_font_sizes/normal_font_size = 20
+text = "Enemys Left: "
+
+[node name="lose" type="Control" parent="ui"]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ui/lose"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 1159.0
+offset_bottom = 661.0
+texture = SubResource("GradientTexture1D_dgpgk")
+
+[node name="defeat" type="RichTextLabel" parent="ui/lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -69.0
+offset_right = 148.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.968627, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("21_4tgem")
+theme_override_font_sizes/normal_font_size = 60
+text = "Defeat!"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui/lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -9.0
+offset_right = 218.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("21_4tgem")
+theme_override_font_sizes/normal_font_size = 30
+text = "Better Luck Next Time?"
+fit_content = true
+
+[node name="win" type="Control" parent="ui"]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ui/win"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 1159.0
+offset_bottom = 661.0
+texture = SubResource("GradientTexture1D_dgpgk")
+
+[node name="win" type="RichTextLabel" parent="ui/win"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -69.0
+offset_right = 148.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 0.72549, 0, 1)
+theme_override_fonts/normal_font = ExtResource("21_4tgem")
+theme_override_font_sizes/normal_font_size = 60
+text = "Victory!"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui/win"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -7.0
+offset_right = 175.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("21_4tgem")
+theme_override_font_sizes/normal_font_size = 30
+text = "Thanks for Playing!"
+fit_content = true

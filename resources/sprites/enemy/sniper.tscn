@@ -175,6 +175,8 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_ltn0s")
 minDist = 1500.0
+minFireDist = 3000.0
+health = 2
 metadata/enemy = ""
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
@@ -193,3 +195,6 @@ shape = SubResource("RectangleShape2D_j3xb1")
 position = Vector2(0, -226)
 
 [node name="spawn" type="Node2D" parent="parent"]
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+max_distance = 5000.0
