@@ -471,7 +471,6 @@ enabled = false
 script = ExtResource("4_vpb4x")
 
 [node name="stairs" type="Node2D" parent="terrain"]
-visible = false
 
 [node name="0-1" type="StaticBody2D" parent="terrain/stairs"]
 collision_layer = 256
